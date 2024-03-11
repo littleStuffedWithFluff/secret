@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const data = req.body.data;
-  writeFile(secret.txt, data, (err) => {if(err) throw err;})
+  writeFile('secret.txt', data, (err) => {if(err) throw err;})
   res.sendFile(__dirname+"/secret.txt")
     
   request.end();
