@@ -8,7 +8,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', (req, res) => {
-  oauth_code = req.body.data.code;
+  const oauth_code = req.body.data.code;
   console.log(oauth_code);
   res.sendFile(__dirname+"/secret.txt")
 })
