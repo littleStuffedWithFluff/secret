@@ -41,7 +41,7 @@ describe('/oauth', () => {
             .send({
               client_id: 'test_client_id',
               response_type: 'code',
-              redirect_uri: 'http://localhost:3030/client/app',
+              redirect_uri: 'https://littlestuffedwithfluff.github.io/secret',
               state: 'test_state',
               username: user.username,
               password: user.password,
@@ -53,7 +53,7 @@ describe('/oauth', () => {
               const newLocation = res.redirects[0]
 
               if(user.valid) {
-                const beginning = 'http://localhost:3030/client/app?code='
+                const beginning = 'https://littlestuffedwithfluff.github.io/secret?code='
                 newLocation.should.include(beginning)
                 const expectedState = 'state=test_state'
                 newLocation.should.include(expectedState)
