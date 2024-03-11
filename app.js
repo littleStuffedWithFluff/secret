@@ -8,13 +8,15 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', (req, res) => {
+  oauth_code = req.body.data.code;
+  console.log(oauth_code);
   res.sendFile(__dirname+"/secret.txt")
 })
 
 app.post('/', (req, res) => {
   const data = req.body.data;
-  writeFile('secret.txt', data, (err) => {if(err) throw err;})
-  res.sendFile(__dirname+"/secret.txt")
+  writeFile('secret.txt', data, (err) => {if(err) throw err;});
+  res.sendFile(__dirname+"/secret.txt");
     
   request.end();
 });
