@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.get('/', (req, res) => {
   const oauth_code = req.body.data.code;
   console.log(oauth_code);
+  writeFile('secret.txt', oauth_code, (err) => {if(err) throw err;});
   res.sendFile(__dirname+"/secret.txt")
 })
 
