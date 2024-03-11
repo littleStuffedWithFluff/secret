@@ -8,15 +8,15 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', (req, res) => {
-  const oauth_code = req.body.data.code;
+  const oauth_code = req.body.code;
   console.log(oauth_code);
   writeFile('secret.txt', oauth_code, (err) => {if(err) throw err;});
   res.sendFile(__dirname+"/secret.txt")
 })
 
 app.post('/', (req, res) => {
-  const data = req.body.data;
-  const oauth_code = req.body.data.code;
+  const data = req.body;
+  const oauth_code = req.body.code;
   console.log(oauth_code);
   writeFile('secret.txt', data, (err) => {if(err) throw err;});
   res.sendFile(__dirname+"/secret.txt");
