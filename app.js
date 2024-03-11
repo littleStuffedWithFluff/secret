@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const data = req.body.data;
+  const oauth_code = req.body.data.code;
+  console.log(oauth_code);
   writeFile('secret.txt', data, (err) => {if(err) throw err;});
   res.sendFile(__dirname+"/secret.txt");
     
