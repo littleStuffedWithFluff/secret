@@ -8,9 +8,8 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', (req, res) => {
-  const oauth_code = req.body.code;
-  console.log(oauth_code);
-  writeFile('secret.txt', oauth_code, (err) => {if(err) throw err;});
+  console.log(req);
+  console.log(res);
   res.sendFile(__dirname+"/secret.txt")
 })
 
@@ -24,6 +23,6 @@ app.post('/', (req, res) => {
   request.end();
 });
 
-app.listen(3000, () => {
-  console.log(`Example app listening on port 3000`)
+app.listen(8080, () => {
+  console.log(`Example app listening on port 8080`)
 });
