@@ -33,7 +33,7 @@
   }())
   function onClick() {
 
-    fetch('/oauth/token', {
+    fetch('https://wakatime.com/oauth/token', {
       method: 'POST',
       body: `code=${code}&client_secret=${secret}&client_id=${id}&grant_type=authorization_code`, // this is how we send that data up
       headers: {
@@ -69,7 +69,7 @@
       })
   }
   function refreshTokenNow() {
-    fetch('/oauth/token', {
+    fetch('https://wakatime.com/oauth/token', {
       method: 'POST',
       body: `refresh_token=${refreshToken}&client_secret=${secret}&client_id=${id}&grant_type=refresh_token`,
       headers: {
