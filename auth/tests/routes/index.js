@@ -22,7 +22,7 @@ const userTypes = [
 ]
 
 describe('/oauth', () => {
-  const base = '/oauth'
+  const base = 'https://wakatime.com/oauth'
   describe('/', () => {
     const url = `${base}/authorize`
     describe('GET', () => {
